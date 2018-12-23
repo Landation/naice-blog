@@ -31,8 +31,8 @@ export default {
 	created() {
 		if (this.project.length == 0) {
 			getProject({}).then(res => {
-				if (res.code === 1) {
-					this.$store.commit('getProject', res.result.list)
+				if (res.code === 100) {
+					this.$store.commit('getProject', res.data)
 					this.$nextTick(() => {
 						this.footer()
 					})

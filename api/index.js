@@ -34,4 +34,4 @@ export const addCommentLike = () => axios.put(`${baseUrl}hero/add`, {...params})
 
 export const replyCommentLike = () => axios.put(`${baseUrl}hero/add`, {...params})
 
-export const getProject = (params) => axios.get(`${baseUrl}project/get`, {params})
+export const getProject = (params) => axios.get(`${baseUrl}project`, {params})

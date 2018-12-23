@@ -3,3 +3,30 @@ node_modules
 
 # logs
 npm-debug.log
+
+# Created by https://www.gitignore.io/api/nuxt,nuxtjs
+# Edit at https://www.gitignore.io/?templates=nuxt,nuxtjs
+
+### Nuxt ###
+# gitignore template for Nuxt.js projects
+#
+# Recommended template: Node.gitignore
+
+# Nuxt build
+.nuxt
+
+ # Nuxt generate
+dist
+
+### Nuxtjs ###
+# dependencies
+node_modules
+
+# logs
+npm-debug.log
+
+# Nuxt build
+
+# Nuxt generate
+
+# End of https://www.gitignore.io/api/nuxt,nuxtjs
