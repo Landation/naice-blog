@@ -4,15 +4,15 @@ import axios from '../config/axios'
 
 const baseUrl = process.env.NODE_ENV === 'production' ? 'https://blogapi.naice.me/api/' : 'http://127.0.0.1:3009/api/'
 
-export const getArticle = (params = {}) => axios.get(`${baseUrl}article/get`, {params})
+export const getArticle = () => axios.get(`${baseUrl}article`)
 
-export const getArticleId = (id) => axios.get(`${baseUrl}article/get/${id}`)
+export const getArticleId = (id) => axios.get(`${baseUrl}article/${id}`)
 
 export const getArticleAll = () => axios.get(`${baseUrl}article/getAll`)
 
-export const articleLike = (id) => axios.post(`${baseUrl}article/like/${id}`)
+export const articleLike = (id) => axios.put(`${baseUrl}article/like/${id}`)
 
-export const getTag = () => axios.get(`${baseUrl}tag/get`)
+export const getTag = () => axios.get(`${baseUrl}tag`)
 
 export const getComment = (params) => axios.get(`${baseUrl}comment/get`, {params})
 

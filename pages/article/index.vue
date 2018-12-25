@@ -3,12 +3,12 @@
         <main class="box main">
             <section class="article">
                 <div class="item" v-for="(item, index) in article" :key="index">
-                    <a href="javascript:void(0)" class="article-title" @click="goDetail(item._id, article)">
+                    <a href="javascript:void(0)" class="article-title" @click="goDetail(item.id, article)">
                         <h2>{{item.title}}</h2>
                     </a>
                     <p class="article-desc">{{item.descript}}</p>
                     <div class="article-info">
-                        <span class="time">{{toTime(item.update_at, '.')}}</span>
+                        <span class="time">{{toTime(item.updateAt, '.')}}</span>
                             <i class="iconfont">&#xe600;</i>
                         <span class="time"><strong v-if="item.meta">{{item.meta.views}}</strong>次阅读</span>
                             <i class="iconfont">&#xe600;</i>
@@ -26,7 +26,7 @@
                 <div class="hot" id = "sideHot">
                     <div class="hot-title">热门文章</div>
                     <div class="hot-article">
-                        <h3 v-for="(item, index) in hotArticle" :key="index" @click="goDetail(item._id, hotArticle)">
+                        <h3 v-for="(item, index) in hotArticle" :key="index" @click="goDetail(item.id, hotArticle)">
                             <a href="javascript:void(0)">{{item.title}}</a>
                         </h3>
                     </div>
@@ -36,9 +36,9 @@
                       <div class="hot-title">标签</div>
                       <div class="tag-list">
                           <nuxt-link
-                              v-for="(item, index) in tags.result.list"
+                              v-for="(item, index) in tags.data"
                               :key="index"
-                              :to="`/article?tag=${item._id}`">{{item.name}}<span>({{item.count}})</span></nuxt-link>
+                              :to="`/article?tag=${item.id}`">{{item.name}}<span>({{item.count}})</span></nuxt-link>
                       </div>
                   </div>
                   <div class="smallNav">
@@ -67,7 +67,7 @@ import TimeMixin from '../../utils/time-mixin'
 let page = 1
 let fetchTags = getTag()
 let fetchHotArticle = getArticle({hot: true})
-let fetchArticle = getArticle({current_page: page})
+let fetchArticle = getArticle()
 
 export default {
   head () {
@@ -87,8 +87,8 @@ export default {
     const hotArticle = await fetchHotArticle
     return {
       tags,
-      article: articles.result.list,
-      hotArticle: hotArticle.result.list
+      article: articles.data,
+      hotArticle: hotArticle.data
     }
   },
   data () {
@@ -96,8 +96,7 @@ export default {
       showFixedTag: false,
       sideHot: null,
       isLoadingData: false,
-      hasMore: true,
-      page: page
+      hasMore: true
     }
   },
   computed: {
@@ -113,14 +112,11 @@ export default {
       getArticle(params).then(res => {
         this.isLoadingData = false
         const {result} = res
-        if (this.page >= result.pagination.total_page) {
-          this.hasMore = false
-        }
         let arr = []
         if (opts.tag || opts.keyword || opts.isNew) {
-          arr = result.list
+          arr = result.data
         } else {
-          arr = this.article.concat(result.list)
+          arr = this.article.concat(result.data)
         }
         // this.$store.commit('getArticle', arr)
         this.article = arr
@@ -132,7 +128,7 @@ export default {
       })
     },
     goDetail(id, data) {
-      const arr = data.filter(item => item._id == id)
+      const arr = data.filter(item => item.id == id)
       this.$store.commit('selectArticle', arr[0])
       this.$router.push('/article/' + id)
     }

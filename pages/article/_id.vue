@@ -7,7 +7,7 @@
             <div v-html="article.editContent"></div>
         </div>
         <div class="info articleDetailBox">
-            <p>本文于 {{toTime(article.update_at, '/')}} 下午 发布在，当前已被围观 {{article.meta.views}} 次</p>
+            <p>本文于 {{toTime(article.updateAt, '/')}}  发布在，当前已被围观 {{article.meta.views}} 次</p>
             <p>标签：<nuxt-link
                 v-for="(tag, index) in article.tag"
                 :key="index"
@@ -15,12 +15,12 @@
                 class="tagLink"
                 >{{tag.name}}</nuxt-link></p>
             <p>作者：Naice</p>
-            <p>链接：https://naice.me/article/{{article._id}}</p>
+            <p>链接：https://naice.me/article/{{article.id}}</p>
             <p>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
         </div>
         <transition name="fade">
             <div class="shearBox articleDetailBox" v-show="isShowShear" style="background: transparent">
-                <shear :title="article.title" :url="`https://blog.naice.me/article/${article._id}`"></shear>
+                <shear :title="article.title" :url="`https://blog.naice.me/article/${article.id}`"></shear>
             </div>
         </transition>
         <div class="arcMata articleDetailBox" style="background: transparent">
@@ -140,7 +140,7 @@ export default {
     },
     async asyncData ({ params }) {
         const res = await getArticleId(params.id)
-        return {article: res.result}
+        return {article: res.data}
     },
     data () {
       return {
@@ -168,13 +168,13 @@ export default {
           const post_id = this.$route.params.id
           const likeComment = JSON.parse(localStorage.getItem('likeComment') || '[]')
           getComment({post_id}).then(res => {
-            let comments = res.result.data || []
+            let comments = res.data || []
             if (comments.length > 0) {
               comments.forEach(item => {
                 item.isShow = false
                 item.replyList = [],
                 item.at = {}
-                if (likeComment.indexOf(item._id) >= 0) {
+                if (likeComment.indexOf(item.id) >= 0) {
                   item.isLike = true
                 } else {
                   item.isLike = false
