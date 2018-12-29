@@ -17,6 +17,7 @@ ENV HOST 127.0.0.1
 ENV PORT 80
 COPY --from=build /src/build ./build
 COPY --from=build /src/.nuxt ./.nuxt
+COPY --from=build /src/package.json .
 
 
 CMD ["node", "build/main.js"]
