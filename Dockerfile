@@ -20,8 +20,7 @@ COPY --from=build /src/.nuxt ./.nuxt
 COPY --from=build /src/package.json .
 
 
-CMD ["node", "build/main.js"]
-
+CMD ["npm run start"]
 
 
 
