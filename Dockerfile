@@ -7,6 +7,7 @@ WORKDIR /src
 COPY . .
 RUN npm install
 RUN npm run build
+RUN ls
 
 FROM build AS publish
 COPY build /app
