@@ -1,8 +1,8 @@
-FROM node:10.13.0-alpine AS base
+FROM node:10.15.0-alpine AS base
 WORKDIR /app
 EXPOSE 80
 
-FROM node:10.13.0 AS build
+FROM node:10.15.0 AS build
 WORKDIR /src
 COPY . .
 RUN npm install && npm audit fix
@@ -13,9 +13,6 @@ FROM build AS publish
 RUN ls
 COPY build /app
 COPY .nuxt /app
-COPY static /app
-COPY assets /app
-
 
 FROM base AS final
 WORKDIR /app
