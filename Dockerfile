@@ -8,7 +8,7 @@ ENV NODE_ENV development
 ENV SERVER_URL http://127.0.0.1:3009/api/
 ENV HOST 127.0.0.1
 ENV PORT 80
-CMD ["npm run start"]
+CMD npm run start
 
 
 
