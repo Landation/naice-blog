@@ -14,27 +14,27 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "clipboard": "^2.0.0",
-    "cross-env": "^5.0.1",
-    "koa": "^2.4.1",
+    "clipboard": "^2.0.4",
+    "cross-env": "^5.2.0",
+    "koa": "^2.6.2",
     "npm-check-updates": "^2.15.0",
     "nuxt": "latest",
-    "source-map-support": "^0.4.15"
+    "source-map-support": "^0.5.9"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
-    "backpack-core": "^0.8.0",
-    "eslint": "^4.19.1",
-    "eslint-config-standard": "^10.2.1",
+    "backpack-core": "^0.8.3",
+    "eslint": "^5.11.1",
+    "eslint-config-standard": "^12.0.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.1.1",
-    "eslint-plugin-html": "^2.0.3",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-node": "^4.2.2",
-    "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "eslint-plugin-vue": "^4.3.0",
-    "nodemon": "^1.11.0",
+    "eslint-plugin-html": "^5.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "nodemon": "^1.18.9",
     "scmp": "^2.0.0"
   }
 }
