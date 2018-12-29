@@ -10,6 +10,7 @@ RUN npm run build
 RUN ls
 
 FROM build AS publish
+RUN ls
 COPY build /app
 COPY .nuxt /app
 COPY static /app
