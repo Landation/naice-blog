@@ -6,7 +6,7 @@ RUN npm run build
 RUN ls
 ENV NODE_ENV development
 ENV SERVER_URL http://127.0.0.1:3009/api/
-ENV HOST 127.0.0.1
+ENV HOST 0.0.0.0
 ENV PORT 80
 CMD npm run start
 
