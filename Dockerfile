@@ -19,7 +19,7 @@ COPY --from=build /src/build .
 COPY --from=build /src/.nuxt .
 
 
-ENTRYPOINT ["node", "build/main.js"]
+CMD ["node", "build/main.js"]
 
 
 
