@@ -67,7 +67,7 @@ import TimeMixin from '../../utils/time-mixin'
 let page = 1
 let fetchTags = getTag()
 let fetchHotArticle = getArticle({hot: true})
-let fetchArticle = getArticle()
+let fetchArticle = getArticle({current_page: page})
 
 export default {
   head () {
@@ -85,6 +85,7 @@ export default {
     const tags = await fetchTags
     const articles = await fetchArticle
     const hotArticle = await fetchHotArticle
+    console.log(articles);
     return {
       tags,
       article: articles.data,
@@ -111,14 +112,18 @@ export default {
       let params = {current_page: this.page, ...opts}
       getArticle(params).then(res => {
         this.isLoadingData = false
-        const {result} = res
         let arr = []
-        if (opts.tag || opts.keyword || opts.isNew) {
-          arr = result.data
+        console.log(opts)
+        console.log(res)
+        console.log('111'+opts.tag!=null)
+        if (opts.tag!=null || opts.keyword || opts.isNew) {
+          arr = res.data
         } else {
-          arr = this.article.concat(result.data)
+          console.log("hello") 
+          arr = this.article.concat(res.data)
+      
         }
-        this.$store.commit('getArticle', arr)
+        //this.$store.commit('getArticle', arr)
         this.article = arr
         this.$nextTick(() => {
           this.footer()
