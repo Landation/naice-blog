@@ -8,7 +8,7 @@
             <img src="../assets/img/averter.jpg" alt="">
           </a>
           <h1>
-            <nuxt-link to="/article?page=0">Feng</nuxt-link>
+            <nuxt-link to="/article?page=0">Iven</nuxt-link>
             <p>很多事情不是因为有希望才去坚持，而是坚持了才有希望。</p>
           </h1>
           <slot></slot>

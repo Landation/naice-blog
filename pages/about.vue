@@ -4,11 +4,11 @@
 			<div class="info">
 				<p>
 					<i class="iconfont icon">&#xe670;</i>
-					<span>我是Naice, 一个91年出生的前端开发者</span>
+					<span>我是Iven, 一个93年出生的前端开发者</span>
 				</p>
 				<p>
 					<i class="iconfont icon">&#xe65b;</i>
-					<span>计算机科学与技术专业</span>
+					<span>信息工程</span>
 				</p>
 				<p>
 					<i class="iconfont icon">&#xe63b;</i>
@@ -16,7 +16,7 @@
 				</p>
 				<p>
 					<i class="iconfont icon">&#xe6c3;</i>
-					<span>胡歌、周星驰、周杰伦</span>
+					<span>陈坤、周星驰、周笔畅</span>
 				</p>
 				<p>
 					<i class="iconfont icon">&#xe64a;</i>
@@ -57,8 +57,8 @@
 							ref="bCanvas"></canvas>
 				</div>
 				<div class="name">
-					<h2 class="title">Naice</h2>
-					<p class="disc">JS stack developer</p>
+					<h2 class="title">Iven</h2>
+					<p class="disc">Full stack developer</p>
 					<p class="friend">Friend me</p>
 				</div>
 				<img class="averter" src="../assets/img/averter.jpg" alt="头像">
@@ -96,11 +96,11 @@ export default {
 	mixins: [FooterMixin],
 	methods: {
 		createMap () {
-      window.initialize = function () {
-        const map = new BMap.Map('allmap')
+			window.initialize = function () {
+				const map = new BMap.Map('allmap')
 				var myGeo = new BMap.Geocoder();
-				// 将地址解析结果显示在地图上,并调整地图视野
-				myGeo.getPoint('软件产业基地', (point) => {
+						// 将地址解析结果显示在地图上,并调整地图视野
+				myGeo.getPoint('长治大楼', (point) => {
 					if (point) {
 						map.centerAndZoom(point, 16)
 						const marker = new BMap.Marker(point)
@@ -111,10 +111,10 @@ export default {
 					} else{
 						console.info('您选择地址没有解析到结果!')
 					}
-				}, '深圳市');
-      }
+				}, '上海市');
+			}
 			const script = document.createElement('script')
-      script.type = 'text/javascript';
+      		script.type = 'text/javascript';
 			script.src = `https://api.map.baidu.com/api?v=2.0&ak=BGfk56dKPEOpvSLiLNuXqqbUVNrPSAKF&s=1&callback=initialize`
 			document.body.appendChild(script);
 		},
