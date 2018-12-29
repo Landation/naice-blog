@@ -5,7 +5,7 @@ EXPOSE 80
 FROM node:10.13.0 AS build
 WORKDIR /src
 COPY . .
-RUN npm install
+RUN npm install && npm audit fix
 RUN npm run build
 RUN ls
 
