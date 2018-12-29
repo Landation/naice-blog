@@ -15,8 +15,8 @@ ENV NODE_ENV development
 ENV SERVER_URL http://127.0.0.1:3009/api/
 ENV HOST 127.0.0.1
 ENV PORT 80
-COPY --from=build /src/build .
-COPY --from=build /src/.nuxt .
+COPY --from=build /src/build ./build
+COPY --from=build /src/.nuxt ./.nuxt
 
 
 CMD ["node", "build/main.js"]
