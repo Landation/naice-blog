@@ -118,7 +118,7 @@ export default {
         } else {
           arr = this.article.concat(result.data)
         }
-        // this.$store.commit('getArticle', arr)
+        this.$store.commit('getArticle', arr)
         this.article = arr
         this.$nextTick(() => {
           this.footer()

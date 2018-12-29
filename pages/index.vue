@@ -8,15 +8,15 @@
             <img src="../assets/img/averter.jpg" alt="">
           </a>
           <h1>
-            <nuxt-link to="/article?page=0">Naice</nuxt-link>
+            <nuxt-link to="/article?page=0">Feng</nuxt-link>
             <p>很多事情不是因为有希望才去坚持，而是坚持了才有希望。</p>
           </h1>
           <slot></slot>
           <div class="aside-icon">
-            <a href="https://github.com/naihe138">
+            <a href="https://github.com/fengzhanyuan2016">
               <i class="iconfont">&#xe621;</i>
             </a>
-            <a href="https://segmentfault.com/u/naice">
+            <a href="https://segmentfault.com/u/cihuoererwan">
               <i class="iconfont">&#xe610;</i>
             </a>
           </div>

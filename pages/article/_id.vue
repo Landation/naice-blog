@@ -299,7 +299,7 @@ export default {
             return false
           }
           const res = await articleLike(this.$route.params.id)
-          if (res.code === 1) {
+          if (res.code === 100) {
             const likeArr = JSON.parse(localStorage.getItem('linkArr') || '[]')
             likeArr.push(this.$route.params.id)
             localStorage.setItem('linkArr', JSON.stringify(likeArr))

@@ -35,7 +35,7 @@
 			<nuxt/>
 		</div>
 		<footer class="layoutFooter" :class="footerFixed ? 'footerFixed' : ''">
-			© 2018 - <nuxt-link to="/">Naice的博客</nuxt-link>
+			© 2018 - <nuxt-link to="/">Feng的博客</nuxt-link>
 			 - Powered by Nuxt.js & Koa
 		</footer>
 	</div>

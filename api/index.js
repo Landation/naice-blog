@@ -4,7 +4,7 @@ import axios from '../config/axios'
 
 const baseUrl = process.env.NODE_ENV === 'production' ? 'https://blogapi.naice.me/api/' : 'http://127.0.0.1:3009/api/'
 
-export const getArticle = () => axios.get(`${baseUrl}article`)
+export const getArticle = (params) => axios.get(`${baseUrl}article`,{params})
 
 export const getArticleId = (id) => axios.get(`${baseUrl}article/${id}`)
 
