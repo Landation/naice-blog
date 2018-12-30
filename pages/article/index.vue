@@ -97,7 +97,8 @@ export default {
       showFixedTag: false,
       sideHot: null,
       isLoadingData: false,
-      hasMore: true
+      hasMore: true,
+      page:page
     }
   },
   computed: {
