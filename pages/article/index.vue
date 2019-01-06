@@ -97,7 +97,7 @@ export default {
       showFixedTag: false,
       sideHot: null,
       isLoadingData: false,
-      hasMore: true,
+      hasMore: false,//没有分页默认获取所有
       page:page
     }
   },

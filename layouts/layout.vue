@@ -36,7 +36,7 @@
 		</div>
 		<footer class="layoutFooter" :class="footerFixed ? 'footerFixed' : ''">
 			© 2018 - <nuxt-link to="/">Iven 的博客</nuxt-link>
-			 - Powered by Nuxt.js & Koa
+			 - Powered by Nuxt.js & Asp.net core
 		</footer>
 	</div>
 </template>
