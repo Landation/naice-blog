@@ -83,7 +83,7 @@ let lastId = "";
 let fetchTags = getTag();
 let fetchHotArticle = getHotArticle();
 //let fetchArticle = getArticle({ current_page: page });
-let fetchPageArticle = getArticle({ id: lastId });
+let fetchPageArticle = getArticle({ lastId: lastId });
 export default {
   head() {
     return {
@@ -130,10 +130,13 @@ export default {
         this.page += 1;
         let params = { current_page: this.page, ...opts };
 
-        this.lastId = this.article[this.article.length - 1].id;
+
+        this.lastId =this.article.length!=0?this.article[this.article.length - 1].id:"";
+        
+
         console.log(this.lastId);
 
-        let params2 = { id: this.lastId, ...opts };
+        let params2 = { lastId: this.lastId, ...opts };
         getArticle(params2)
           .then(res => {
             this.isLoadingData = false;
@@ -150,6 +153,7 @@ export default {
             this.article = arr;
             //this.$store.commit('getArticle', arr)
             console.log(res.data.length);
+
 
             if (res.data.length < 10) {
               this.hasMore = false;
@@ -199,8 +203,12 @@ export default {
   },
   beforeRouteUpdate(to, from, next) {
     this.page = 0;
+    this.lastId = "";
     this.hasMore = true;
+    console.log("进入了新的路由");
     if (to.query.tag || to.query.keyword) {
+      this.article = []
+      console.log(to.query)
       this.loadMore(to.query);
     } else {
       this.loadMore({ isNew: true });
