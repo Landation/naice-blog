@@ -80,6 +80,7 @@ import TimeMixin from "../../utils/time-mixin";
 
 let page = 1;
 let lastId = "";
+let currectTag = "";
 let fetchTags = getTag();
 let fetchHotArticle = getHotArticle();
 //let fetchArticle = getArticle({ current_page: page });
@@ -129,14 +130,14 @@ export default {
         this.isLoadingData = true;
         this.page += 1;
         let params = { current_page: this.page, ...opts };
-
-
         this.lastId =this.article.length!=0?this.article[this.article.length - 1].id:"";
-        
-
         console.log(this.lastId);
 
-        let params2 = { lastId: this.lastId, ...opts };
+        if(opts.tag == null&&this.currectTag!="")
+        {
+          opts.tag= this.currectTag
+        }
+        let params2 = { lastId: this.lastId, ...opts};    
         getArticle(params2)
           .then(res => {
             this.isLoadingData = false;
@@ -145,7 +146,7 @@ export default {
             console.log(res);
             console.log(`111${opts.tag != null}`);
             if (opts.tag != null || opts.keyword || opts.isNew) {
-              arr = res.data;
+              arr =this.article.concat(res.data);
             } else {
               console.log("hello");
               arr = this.article.concat(res.data);
@@ -205,9 +206,11 @@ export default {
     this.page = 0;
     this.lastId = "";
     this.hasMore = true;
+    this.currectTag ="";
     console.log("进入了新的路由");
     if (to.query.tag || to.query.keyword) {
       this.article = []
+      this.currectTag = to.query.tag
       console.log(to.query)
       this.loadMore(to.query);
     } else {
