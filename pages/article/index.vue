@@ -59,14 +59,14 @@
 </template>
 
 <script>
-import {getArticle, getTag} from '../../api'
+import {getArticle,getHotArticle, getTag} from '../../api'
 import ToTop from '../../components/toTop.vue'
 import FooterMixin from '../../utils/footer-mixin'
 import TimeMixin from '../../utils/time-mixin'
 
 let page = 1
 let fetchTags = getTag()
-let fetchHotArticle = getArticle({hot: true})
+let fetchHotArticle = getHotArticle()
 let fetchArticle = getArticle({current_page: page})
 
 export default {
@@ -97,7 +97,7 @@ export default {
       showFixedTag: false,
       sideHot: null,
       isLoadingData: false,
-      hasMore: false,//没有分页默认获取所有
+      hasMore: true,//没有分页默认获取所有
       page:page
     }
   },

@@ -8,6 +8,8 @@ export const getArticle = (params) => axios.get(`${baseUrl}article`,{params})
 
 export const getArticleId = (id) => axios.get(`${baseUrl}article/${id}`)
 
+export const getHotArticle = () => axios.get(`${baseUrl}article/hot`)
+
 export const getArticleAll = () => axios.get(`${baseUrl}article/getAll`)
 
 export const articleLike = (id) => axios.put(`${baseUrl}article/like/${id}`)
